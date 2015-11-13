@@ -7,7 +7,10 @@
     "start": "webpack-dev-server"
   },
   "author": "AwesomenessTeam",
-  "dependencies": {},
+  "dependencies": {
+    "d3": "^3.5.8",
+    "lodash": "^3.10.1"
+  },
   "devDependencies": {
     "babel-core": "^6.1.2",
     "babel-loader": "^6.0.1",
