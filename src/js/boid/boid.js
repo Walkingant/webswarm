@@ -1,3 +1,4 @@
+import d3 from 'd3';
 export class Boid {
   constructor(px, py, vx, vy){
     this.x = px;
@@ -45,18 +46,27 @@ export class Boid {
       vAli.x /= len;
       vAli.y /= len;
 
-      console.log(vCoh.x, this.x);
 
       let cohVx = (vCoh.x - this.x) * this.cohesionCoef;
       let cohVy = (vCoh.y - this.y) * this.cohesionCoef;
 
-      console.log(cohVx, cohVy);
-      console.log(vAli.x * this.aliCoef, vAli.y * this.aliCoef);
-
-      this.vx += cohVx + vAli.x * this.aliCoef;
-      this.vy += cohVy + vAli.y * this.aliCoef;
-
+      this.vx = Math.max( Math.min(this.vx + cohVx + vAli.x * this.aliCoef, 0.1), -0.1);
+      this.vy = Math.min( Math.max(this.vy + cohVy + vAli.y * this.aliCoef, 0.1), -0.1);
     }
+
+    this.x += this.vx;
+    this.y += this.vy;
+    this.drawBoid(this.x, this.y);
+  }
+
+  drawBoid(x,y) {
+    var g = d3.select("svg").append("g");
+    g.insert("circle").attr({
+      cx: x,
+      cy: y,
+      fill: "green",
+      r: 1
+    });
   }
 
   getPosition(){

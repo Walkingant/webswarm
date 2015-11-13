@@ -1,17 +1,31 @@
 // import Boid from 'boid/index';
-import {boidInit} from './boid/index';
+import {
+  boidInit
+}
+from './boid/index';
 import d3 from 'd3';
-import {Boid} from './boid/boid.js';
+import {
+  Boid
+}
+from './boid/boid.js';
+
+let boids = d3.range(100).map(() => {
+  return new Boid(
+    Math.random() * 600,
+    Math.random() * 400,
+    Math.random() * 10,
+    Math.random() * 10
+  );
+});
 
 function init() {
   animate();
-  boidInit();
 }
 
 function animate() {
-  // _.each(boids, (boid) => {
-  //   boid.update();
-  // });
+  _.each(boids, (boid) => {
+    boid.update(boids);
+  });
   window.requestAnimationFrame(animate);
 }
 

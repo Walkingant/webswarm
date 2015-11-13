@@ -6,38 +6,6 @@ const degrees = 180 / Math.PI;
 const VISION_RADIUS = 20;
 const BODY_RADIUS = 5;
 
-// let nodes = d3.range(10).map(() => {
-//   return {
-//     x: Math.random() * 600,
-//     y: Math.random() * 400,
-//     r: VISION_RADIUS
-//   }
-// });
-
-// var boids = createBoids(nodes);
-//
-// function createBoids(nodes) {
-//   var svg = d3.select("#main-svg");
-//   let boids = [];
-//   _.each(nodes, (node) => {
-//       svg.append("circle")
-//         .attr({
-//           cx: node.x,
-//           cy: node.y,
-//           r: BODY_RADIUS,
-//           fill: "yellow"
-//         })
-//         .attr("class", "boid");
-//         boids.push(d3.select(".boid"));
-//     // boids.push(d3.selectAll("circle").data(node).enter().append("circle"));
-//   });
-//   console.log(boids);
-// }
-//
-// _.each(boids, (node) => {
-//   console.log(collide(node, boids));
-// })
-
 function collide(node, points){
     var trans = d3.transform(d3.select(node).attr("transform")).translate,
       x1 = trans[0],
