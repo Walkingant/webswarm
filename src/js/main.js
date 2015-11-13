@@ -1,6 +1,7 @@
 // import Boid from 'boid/index';
 import {boidInit} from './boid/index';
 import d3 from 'd3';
+import {Boid} from './boid/boid.js';
 
 function init() {
   animate();
