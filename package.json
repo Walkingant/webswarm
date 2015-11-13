@@ -9,7 +9,8 @@
   "author": "AwesomenessTeam",
   "dependencies": {
     "d3": "^3.5.8",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "victor": "^1.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.1.2",
